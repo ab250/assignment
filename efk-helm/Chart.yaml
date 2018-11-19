@@ -1,3 +1,0 @@
-apiVersion: v1
-description: elasticsearch logging chart
-name: efk-helm
