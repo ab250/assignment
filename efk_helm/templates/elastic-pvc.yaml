@@ -1,0 +1,24 @@
+{{ if .Values.persistence.enabled }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "name.elasticsearch" . }}-pvc
+  labels:
+    app: {{ template "name.elasticsearch" . }}
+    release: "{{ .Release.Name }}"
+spec:
+  {{- if .Values.persistence.useDynamicProvisioning }}
+  ## if present, use the storageClassName from the values.yaml, else use the
+  ## default storageClass setup by kube Administrator
+  ## setting storageClassName to nil means use the default storage class
+  storageClassName: {{ default nil .Values.dataVolume.storageClassName | quote }}
+  {{- else }}
+  storageClassName: {{ default "" .Values.dataVolume.storageClassName | quote }}
+  {{- end }}
+
+  accessModes:
+    - "{{ .Values.dataVolume.accessModes  }}"
+  resources:
+    requests:
+      storage: {{ .Values.dataVolume.size | quote }}
+{{- end }}
