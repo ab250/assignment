@@ -102,7 +102,7 @@ spec:
       - name: {{ template "fullname.elasticsearch" . }}
         {{- if .Values.persistence.enabled }}
         persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-{{ .Values.dataVolume.name }}
+          claimName: {{ template "name.elasticsearch" . }}-pvc
         {{- else }}
         emptyDir: {}
         {{- end -}}

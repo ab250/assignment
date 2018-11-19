@@ -51,10 +51,9 @@ elasticsearch:
   tolerations: []
   affinity: {}
 persistence:
-  enabled: false
+  enabled: true
   useDynamicProvisioning: true
 dataVolume:
-  name: "data-stor"
   accessModes: ReadWriteOnce
   size: 1Gi
   storageClassName: ""
