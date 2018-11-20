@@ -37,12 +37,12 @@ $ helm delete my-release
 
 | Parameter                  | Description                         | Default                                                 |
 |----------------------------|-------------------------------------|---------------------------------------------------------|
-| `rbac.enabled` | Enables RBAC | `false` |
+| `rbac.enabled` | Enables RBAC | `true` |
 | `kibana.replicaCount`                 | Number of Kibana nodes | `1` |
 | `kibana.image.repository`         | Image repository | `docker.elastic.co/kibana/kibana` |
 | `kibana.image.tag`                | Image tag. | `6.2.4`|
 | `kibana.image.pullPolicy`         | Image pull policy | `IfNotPresent` |
-| `kibana.service.type`             | Kubernetes service type | `ClusterIP` |
+| `kibana.service.type`             | Kubernetes service type | `NodePort` |
 | `kibana.service.port`             | Kubernetes port where service is exposed| `5601` |
 | `kibana.ingress.enabled`          | Enables Ingress | `false` |
 | `kibana.ingress.annotations`      | Ingress annotations | `{}` |

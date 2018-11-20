@@ -51,7 +51,7 @@ elasticsearch:
   tolerations: []
   affinity: {}
 persistence:
-  enabled: true
+  enabled: false
   useDynamicProvisioning: true
 dataVolume:
   accessModes: ReadWriteOnce
